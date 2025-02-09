@@ -1,0 +1,5 @@
+ipykernel
+yfinance
+matplotlib
+altair
+streamlit
