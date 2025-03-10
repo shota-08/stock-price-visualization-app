@@ -2,6 +2,7 @@ import pandas as pd
 import yfinance as yf
 import altair as alt
 import streamlit as st
+import time
 
 st.title("投信価格 可視化アプリ")
 
@@ -24,6 +25,7 @@ def get_data(days, tickers):
     df = pd.DataFrame()
     for index in tickers.keys():
         tkr = yf.Ticker(tickers[index])
+        time.sleep(2)
         hist = tkr.history(period=f'{days}d')
         hist.index = hist.index.strftime("%d %B %Y")
         hist = hist[["Close"]]
